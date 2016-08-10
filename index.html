@@ -1,40 +1,69 @@
 <html>
 
 <head>
+
+    <style>
+        .is-valid {
+            border: solid 1px green;
+        }
+        .not-valid {
+            border: solid 1px red;
+        }
+    </style>
+
 </head>
 
 <body>
 
 <form class="valizator">
 
-	<ul>
+    <ul>
 
-		<li>
-			<label for="input_1">Input Text</label>
+        <li>
+            <label for="input_1">Input Text</label>
 
-			<input id="input_1" name="input_1" type="text" value="" required>
-		</li>
+            <input id="input_1" name="input_1" type="text" value="" >
+        </li>
 
-		<li>
-			<label for="input_2">Input Select</label>
+        <li>
+            <label for="input_2">Input Select</label>
 
-			<select id="input_2" name="input_2" required>
-				<option value=""></option>
-				<option value="test1">Test 1</option>
-				<option value="test2">Test 2</option>
-			</select>
-		</li>
+            <select id="input_2" name="input_2" >
+                <option value=""></option>
+                <option value="test1">Test 1</option>
+                <option value="test2">Test 2</option>
+            </select>
+        </li>
 
-		<li>
-			<input type="submit" value="Submit">
-		</li>
+        <li>
+            <input type="submit" value="Submit">
+        </li>
 
-	</ul>
+    </ul>
 
 </form>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="main.js"></script>
+
+<script>
+$(function() {
+    $('.valizator').valizator({
+        definitions: [
+            {
+                name: 'input_1',
+                required: true,
+                minlength: 2,
+                maxlength: 5
+            },
+            {
+                name: 'input_2',
+                required: true
+            }
+        ]
+    });
+});
+</script>
 
 </body>
 
